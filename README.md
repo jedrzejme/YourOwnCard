@@ -91,8 +91,11 @@ python app.py
 ## Features
 * Creating your own card
 * Editing your own card with secret phrase protection provided by email
-* Option to disable editing after creation
-* Option to disable creating new profiles
+* Option to disable editing after creation in config.ini
+* Option to disable creating new profiles in config.ini
+* Option to set different port in config.ini
+* Option to set app name in config.ini
+* Option to change colors in config.ini
 
 ## Supported social medias
 1) Your website
