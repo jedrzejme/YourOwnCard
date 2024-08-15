@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Own Card</title>
+    <title>{{ app_name }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index-styles.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Your Own Card</h1>
+        <h1>{{ app_name }}</h1>
         {% if enable_creation_of_new_profiles %}
         <button><a href="/create-profile">Create your own</a></button>
         {% endif %}

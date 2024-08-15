@@ -23,6 +23,7 @@ PROTECTED_DIR = '/protected'
 
 config.read('config.ini')
 
+app_name = config.get('main', 'app_name')
 default_background_color = f"#{config.get('main', 'default_background_color')}"
 default_container_color = f"#{config.get('main', 'default_container_color')}"
 default_button_color = f"#{config.get('main', 'default_button_color')}"
@@ -157,7 +158,7 @@ def protected_file(filename):
 
 @app.route('/')
 def index():
-    return render_template('index.html', enable_creation_of_new_profiles=enable_creation_of_new_profiles, enable_editing_after_creation=enable_editing_after_creation)
+    return render_template('index.html', app_name = app_name, enable_creation_of_new_profiles=enable_creation_of_new_profiles, enable_editing_after_creation=enable_editing_after_creation)
 
 @app.route('/create-profile', methods=['GET', 'POST'])
 def create_your_own():
@@ -198,6 +199,7 @@ def submit_edition_of_profile():
 def profile(username):
     profile = load_profile(f"protected/profiles/{username}.txt")
     return render_template("profile.html",
+                        app_name = app_name,
                         **profile)
 
 @app.route('/support')
