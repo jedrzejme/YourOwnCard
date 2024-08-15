@@ -74,7 +74,7 @@ def send_secret_phrase(email, display_name, username, secret_phrase):
     
     return response
 
-def create_profile(username, email, display_name, background_color, container_color, button_color, button_hover_color, text_color, about_me, www, www_name, instagram, instagram_name, facebook, facebook_name, x, x_name, github, github_name linkedin, linkedin_name, discord, steam, steam_name, profile_picture_path):
+def create_profile(username, email, display_name, background_color, container_color, button_color, button_hover_color, text_color, about_me, www, www_name, instagram, instagram_name, facebook, facebook_name, x, x_name, github, github_name, linkedin, linkedin_name, discord, steam, steam_name, profile_picture_path):
     secret_phrase = generate_secret_phrase()
     background_color = background_color or default_background_color
     container_color = container_color or default_container_color
