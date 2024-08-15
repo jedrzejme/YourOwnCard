@@ -33,8 +33,8 @@
 
 **How to use it?**
 * [**Using version hosted by me**](https://your-own-card.jbs.ovh)
-* [**Using docker-compose**](https://github.com/jedrzejme/YourOwnCard/#using-docker-compose-to-run-your-own-card)
-* [**Using docker-compose**](https://github.com/jedrzejme/YourOwnCard/#using-python-to-run-your-own-card)
+* [**Using docker-compose**](#using-docker-compose-to-run-your-own-card)
+* [**Using Python**](#using-python-to-run-your-own-card)
 
 **What did I use?**
 * [Python](https://www.python.org/)
