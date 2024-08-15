@@ -34,6 +34,7 @@
 **How to use it?**
 * [**Using version hosted by me**](https://your-own-card.jbs.ovh)
 * [**Using docker-compose**](https://github.com/jedrzejme/YourOwnCard/#using-docker-compose-to-run-your-own-card)
+* [**Using docker-compose**](https://github.com/jedrzejme/YourOwnCard/#using-python-to-run-your-own-card)
 
 **What did I use?**
 * [Python](https://www.python.org/)
@@ -43,7 +44,7 @@
 * [Git management](https://desktop.github.com/)
 
 ## Using docker-compose to run Your Own Card
-1) Install docker and docker-compose
+1) Install Docker and docker-compose
 
 2) Create new directory called however you want and enter it
 
@@ -64,6 +65,28 @@ docker build -t your-own-card .
 docker-compose up -d
 ```
 7) It works!
+
+## Using Python to run Your Own Card
+1) Install Python
+
+2) Create new directory called however you want and enter it
+
+3) Clone this repository and enter its directory:
+```
+git clone https://github.com/jedrzejme/YourOwnCard.git
+```
+
+4) Install requirements.txt
+```
+python -m pip install -r requirements.txt
+```
+
+5) Run app.py (by default it will run on port 5000):
+```
+python app.py
+```
+
+6) It works!
 
 ## Features
 * Creating your own card
