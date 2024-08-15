@@ -74,7 +74,7 @@ def send_secret_phrase(email, display_name, username, secret_phrase):
     
     return response
 
-def create_profile(username, email, display_name, background_color, container_color, button_color, button_hover_color, text_color, about_me, www, www_name, instagram, instagram_name, facebook, facebook_name, x, x_name, linkedin, linkedin_name, discord, steam, steam_name, profile_picture_path):
+def create_profile(username, email, display_name, background_color, container_color, button_color, button_hover_color, text_color, about_me, www, www_name, instagram, instagram_name, facebook, facebook_name, x, x_name, github, github_name linkedin, linkedin_name, discord, steam, steam_name, profile_picture_path):
     secret_phrase = generate_secret_phrase()
     background_color = background_color or default_background_color
     container_color = container_color or default_container_color
@@ -87,10 +87,11 @@ def create_profile(username, email, display_name, background_color, container_co
     instagram_name = instagram_name or instagram.rstrip('/').split('/')[-1]
     facebook_name = facebook_name or facebook.rstrip('/').split('/')[-1]
     x_name = x_name or x.rstrip('/').split('/')[-1]
+    github_name = github_name or github.rstrip('/').split('/')[-1]
     linkedin_name = linkedin_name or "LinkedIn"
     steam_name = steam_name or steam.rstrip('/').split('/')[-1]
     profile_file = open(f"protected/profiles/{username}.txt", "w")
-    profile_file.write(f"email = {email}\nusername = {username}\ndisplay_name = {display_name}\nbackground_color = {background_color}\ncontainer_color = {container_color}\nbutton_color = {button_color}\nbutton_hover_color = {button_hover_color}\ntext_color = {text_color}\nfooter_color = {footer_color}\nabout_me = {about_me}\nwww = {www}\nwww_name = {www_name}\ninstagram_name = {instagram_name}\ninstagram = {instagram}\nfacebook_name = {facebook_name}\nfacebook = {facebook}\nx_name = {x_name}\nx = {x}\nlinkedin_name = {linkedin_name}\nlinkedin = {linkedin}\ndiscord = {discord}\nsteam_name = {steam_name}\nsteam = {steam}\nprofile_picture_path = {profile_picture_path}\nsecret_phrase = {secret_phrase}")
+    profile_file.write(f"email = {email}\nusername = {username}\ndisplay_name = {display_name}\nbackground_color = {background_color}\ncontainer_color = {container_color}\nbutton_color = {button_color}\nbutton_hover_color = {button_hover_color}\ntext_color = {text_color}\nfooter_color = {footer_color}\nabout_me = {about_me}\nwww = {www}\nwww_name = {www_name}\ninstagram_name = {instagram_name}\ninstagram = {instagram}\nfacebook_name = {facebook_name}\nfacebook = {facebook}\nx_name = {x_name}\nx = {x}\ngithub_name = {github_name}\ngithub = {github}\nlinkedin_name = {linkedin_name}\nlinkedin = {linkedin}\ndiscord = {discord}\nsteam_name = {steam_name}\nsteam = {steam}\nprofile_picture_path = {profile_picture_path}\nsecret_phrase = {secret_phrase}")
     profile_file.close()
     send_secret_phrase(email, display_name, username, secret_phrase)
 
@@ -118,6 +119,8 @@ def create_profile_with_picture():
         steam = request.form.get("steam")
         x = request.form.get("x")
         x_name = request.form.get("x-name")
+        github = request.form.get("github")
+        github_name = request.form.get("github-name")
 
         profile_picture_path = "default.jpg"
 
@@ -140,7 +143,7 @@ def create_profile_with_picture():
         else:
             return redirect(request.url)
 
-        create_profile(username, email, display_name, background_color, container_color, button_color, button_hover_color, text_color, about_me, www, www_name, instagram, instagram_name, facebook, facebook_name, x, x_name, linkedin, linkedin_name, discord, steam, steam_name, profile_picture_path)
+        create_profile(username, email, display_name, background_color, container_color, button_color, button_hover_color, text_color, about_me, www, www_name, instagram, instagram_name, facebook, facebook_name, x, x_name, github, github_name, linkedin, linkedin_name, discord, steam, steam_name, profile_picture_path)
         
         return redirect(f"/profile/{username}")
     

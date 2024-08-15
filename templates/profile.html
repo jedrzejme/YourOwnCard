@@ -74,6 +74,9 @@
                 {% if x %}
                 <li class="x"><a href="{{ x }}" target="_blank"><canvas id="x-icon" class="icon"></canvas> {{ x_name }}</a></li>
                 {% endif %}
+                {% if github %}
+                <li class="github"><a href="{{ github }}" target="_blank"><canvas id="github-icon" class="icon"></canvas> {{ github_name }}</a></li>
+                {% endif %}
                 {% if linkedin %}
                 <li class="linkedin"><a href="{{ linkedin }}" target="_blank"><canvas id="linkedin-icon" class="icon"></canvas> {{ linkedin_name }}</a></li>
                 {% endif %}
@@ -98,6 +101,7 @@
                 'instagram-icon': '/static/icons/instagram.png',
                 'facebook-icon': '/static/icons/facebook.png',
                 'x-icon': '/static/icons/x.png',
+                'github-icon': '/static/icons/github.png',
                 'linkedin-icon': '/static/icons/linkedin.png',
                 'discord-icon': '/static/icons/discord.png',
                 'steam-icon': '/static/icons/steam.png'
