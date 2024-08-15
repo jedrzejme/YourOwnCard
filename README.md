@@ -35,7 +35,6 @@
 **What did I use?**
 * [Python](https://www.python.org/)
 * [Python libraries](/requirements.txt)
-* [Docker](https://www.docker.com/)
 * [Coding](https://code.visualstudio.com/)
 * [Git management](https://desktop.github.com/)
 
