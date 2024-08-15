@@ -1,0 +1,7 @@
+Flask
+os
+requests
+secrets
+string
+json
+configparser

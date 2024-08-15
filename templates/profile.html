@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ display_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile-styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='profiles/' + profile_picture_path) }}">
+    <style>
+        body{
+            color: {{ text_color }};
+            background-color: {{ background_color }};
+        }
+        .container{
+            background-color: {{ container_color }};
+        }
+        .tab-button{
+            color: {{ text_color }};
+            background-color: {{ button_color }};
+        }
+        .tab-button:hover{
+            color: {{ text_color }};
+            background-color: {{ button_hover_color }};
+        }
+        a:link {
+            color: {{ text_color }};
+            text-decoration: none;
+        }
+        a:visited {
+            color: {{ text_color }};
+            text-decoration: none;
+        }
+        a:hover {
+            color: {{ text_color }};
+            text-decoration: none;
+        }
+        a:active {
+            color: {{ text_color }};
+            text-decoration: none;
+        }
+        .footer{
+            color: {{ text_color }};
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='profiles/' + profile_picture_path) }}" class="img-profile-picture">
+        <div class="username"><h2> {{ display_name }} </h2></div>
+        <div class="tabs">
+            <button class="tab-button" onclick="showTab('about')">About Me</button>
+            <button class="tab-button" onclick="showTab('accounts')">Accounts</button>
+        </div>
+        <div id="about" class="tab-content">
+            <h2>About Me</h2>
+            <p>
+                {{ about_me }}
+            </p>
+        </div>
+        <div id="accounts" class="tab-content">
+            <h2>Accounts</h2>
+            <p class="accounts">
+            <ul>
+                {% if www %}
+                <li class="www"><a href="{{ www }}" target="_blank"><canvas id="www-icon" class="icon"></canvas> {{ www_name }}</a></li>
+                {% endif %}
+                {% if instagram %}
+                <li class="instagram"><a href="{{ instagram }}" target="_blank"><canvas id="instagram-icon" class="icon"></canvas> {{ instagram_name }}</a></li>
+                {% endif %}
+                {% if facebook %}
+                <li class="facebook"><a href="{{ facebook }}" target="_blank"><canvas id="facebook-icon" class="icon"></canvas> {{ facebook_name }}</a></li>
+                {% endif %}
+                {% if x %}
+                <li class="x"><a href="{{ x }}" target="_blank"><canvas id="x-icon" class="icon"></canvas> {{ x_name }}</a></li>
+                {% endif %}
+                {% if linkedin %}
+                <li class="linkedin"><a href="{{ linkedin }}" target="_blank"><canvas id="linkedin-icon" class="icon"></canvas> {{ linkedin_name }}</a></li>
+                {% endif %}
+                {% if discord %}
+                <li class="discord"><a><canvas id="discord-icon" class="icon"></canvas> {{ discord }}</a></li>
+                {% endif %}
+                {% if steam %}
+                <li class="steam"><a href="{{ steam }}" target="_blank"><canvas id="steam-icon" class="icon"></canvas> {{ steam_name }}</a></li>
+                {% endif %}
+            </ul>
+            </p>
+        </div>
+        <div class="footer"><a href="/" target="_blank"> Created with Card.io </a></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/profile-scripts.js') }}"></script>
+    <script>
+        // Function to update all canvas elements
+        function updateCanvasIcons() {
+            const iconMap = {
+                'www-icon': '/static/icons/www.png',
+                'instagram-icon': '/static/icons/instagram.png',
+                'facebook-icon': '/static/icons/facebook.png',
+                'x-icon': '/static/icons/x.png',
+                'linkedin-icon': '/static/icons/linkedin.png',
+                'discord-icon': '/static/icons/discord.png',
+                'steam-icon': '/static/icons/steam.png'
+            };
+
+            const colorOverlay = '{{ text_color }}'; // Replace with your specific HEX color
+
+            Object.keys(iconMap).forEach(canvasId => {
+                const canvas = document.getElementById(canvasId);
+                if (canvas) {
+                    const ctx = canvas.getContext('2d');
+                    const img = new Image();
+                    img.src = iconMap[canvasId];
+                    img.onload = function() {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                        ctx.globalCompositeOperation = 'source-in';
+                        ctx.fillStyle = colorOverlay;
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    };
+                }
+            });
+        }
+
+        // Call the function to update all canvas elements on page load
+        updateCanvasIcons();
+    </script>
+
+</body>
+</html>

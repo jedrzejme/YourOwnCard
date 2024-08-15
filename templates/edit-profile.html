@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Your Card</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit-profile-styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Edit your card</h1>
+        <form method="post" enctype="multipart/form-data" action="/submit-edition-of-profile">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="secret-phrase">Secret phrase</label>
+            <input type="text" id="secret-phrase" name="secret-phrase" required>
+
+            <label for="display-name">Displayed name</label>
+            <input type="text" id="display-name" name="display-name" required>
+
+            <label for="profile-picture">Profile picture (png, jpeg or jpg, max 5 MB)</label>
+            <input type="file" id="profile-picture" name="profile-picture" accept="image/png, image/jpeg, image/jpg" required>
+            
+            <br>
+            <br>
+
+            <label for="background-color">Background color</label>
+            <input type="color" id="background-color" name="background-color" value="#C2C2B6">
+
+            <br>
+            <br>
+
+            <label for="container-color">Container color</label>
+            <input type="color" id="container-color" name="container-color" value="#D1D1C5">
+
+            <br>
+            <br>
+
+            <label for="button-color">Button color</label>
+            <input type="color" id="button-color" name="button-color" value="#B0B0A5">
+
+            <br>
+            <br>
+
+            <label for="button-hover-color">Button hover color</label>
+            <input type="color" id="button-hover-color" name="button-hover-color" value="#A0A09A">
+
+            <br>
+            <br>
+
+            <label for="text-color">Text color</label>
+            <input type="color" id="text-color" name="text-color" value="#000000">
+
+            <br>
+            <br>
+
+            <label for="about-me">About me</label>
+            <textarea id="about-me" name="about-me" rows="4" required></textarea>
+
+            <label for="www-name">Your Website - displayed name (how it will appear in Accounts section)</label>
+            <input type="text" id="www-name" name="www-name">
+
+            <label for="www">Your Website (link)</label>
+            <input type="url" id="www" name="www">
+
+            <label for="instagram-name">Instagram - displayed name (how it will appear in Accounts section)</label>
+            <input type="text" id="instagram-name" name="instagram-name">
+
+            <label for="instagram">Instagram (link)</label>
+            <input type="url" id="instagram" name="instagram">
+
+            <label for="facebook-name">Facebook - displayed name (how it will appear in Accounts section)</label>
+            <input type="text" id="facebook-name" name="facebook-name">
+
+            <label for="facebook">Facebook (link)</label>
+            <input type="url" id="facebook" name="facebook">
+
+            <label for="x-name">X - displayed name (how it will appear in Accounts section)</label>
+            <input type="text" id="x-name" name="x-name">
+
+            <label for="x">X (link)</label>
+            <input type="url" id="x" name="x">
+
+            <label for="linkedin-name">LinkedIn - displayed name (how it will appear in Accounts section)</label>
+            <input type="text" id="linkedin-name" name="linkedin-name">
+
+            <label for="linkedin">LinkedIn (link)</label>
+            <input type="url" id="linkedin" name="linkedin">
+
+            <label for="discord">Discord (username)</label>
+            <input type="text" id="discord" name="discord">
+
+            <label for="steam-name">Steam - displayed name (how it will appear in Accounts section)</label>
+            <input type="text" id="steam-name" name="steam-name">
+
+            <label for="steam">Steam (link)</label>
+            <input type="url" id="steam" name="steam">
+
+            <button type="submit">Submit</button>
+        </form>
+        <div class="footer">After submitting edits, You will recive new secret phrase for later on edits.</div>
+    </div>
+</body>
+</html>

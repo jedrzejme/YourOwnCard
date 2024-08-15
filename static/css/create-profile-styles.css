@@ -1,0 +1,73 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #C2C2B6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: device-height;
+    width: device-width;
+}
+
+.form-container {
+    width: 400px;
+    background-color: #D1D1C5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.8em;
+    color: #000;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 1em;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.secret-code,
+input[type="text"],
+input[type="email"],
+input[type="url"],
+textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #E3E3D5;
+    border-radius: 5px;
+    background-color: #E3E3D5;
+    font-size: 1em;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #888;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    color: #FFFFFF;
+}
+
+button:hover {
+    background-color: #666;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 0.8em;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Own Card</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index-styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Own Card</h1>
+        {% if enable_creation_of_new_profiles %}
+        <button><a href="/create-profile">Create your own</a></button>
+        {% endif %}
+        {% if enable_editing_after_creation %}
+        <button><a href="/edit-profile">Edit your own</a></button>
+        {% endif %}
+        <button><a href="/support">Support project</a></button>
+    </div>
+</body>
+</html>
