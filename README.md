@@ -31,12 +31,32 @@
 
 **How to use it?**
 * [**Using version hosted by me**](https://your-own-card.jbs.ovh)
+* [**Using docker-compose**](https://github.com/jedrzejme/DynamicDNSUsingCloudflare/#using-docker-compose-to-run-your-own-card)
 
 **What did I use?**
 * [Python](https://www.python.org/)
 * [Python libraries](/requirements.txt)
+* [Docker](https://www.docker.com/)
 * [Coding](https://code.visualstudio.com/)
 * [Git management](https://desktop.github.com/)
+
+## Using docker-compose to run Your Own Card
+1) Install docker and docker-compose
+
+2) Create new directory called however you want and enter it
+
+3) Clone this repository:
+```
+git clone https://github.com/jedrzejme/YourOwnCard.git
+```
+
+4) Edit config.ini
+
+5) Run docker-compose in the same directory (by default it will run on port 5000):
+```
+docker-compose up -d
+```
+6) It works!
 
 ## Features
 * Creating your own card
