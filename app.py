@@ -24,6 +24,7 @@ PROTECTED_DIR = '/protected'
 config.read('config.ini')
 
 app_name = config.get('main', 'app_name')
+port = config.getint('main', 'port')
 default_background_color = f"#{config.get('main', 'default_background_color')}"
 default_container_color = f"#{config.get('main', 'default_container_color')}"
 default_button_color = f"#{config.get('main', 'default_button_color')}"
@@ -210,4 +211,4 @@ def support():
     return render_template('support.html')
 
 if __name__ == '__main__':
-    app.run(host="localhost", port=5000)
+    app.run(host="localhost", port=port)
