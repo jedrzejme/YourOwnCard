@@ -69,6 +69,16 @@ docker-compose up -d
 * Option to disable editing after creation
 * Option to disable creating new profiles
 
+## Supported social medias
+1) Your website
+2) Instagram
+3) Facebook
+4) X
+5) GitHub
+6) LinkedIn
+7) Discord
+8) Steam
+
 ## Purpose
 Simpler and free alternative to popular, similar web apps
 
