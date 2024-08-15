@@ -4,3 +4,7 @@ services:
         ports:
             - 5000:5000 # <Host Port>:<Container Port (do not change)>
         image: your-own-card
+        volumes:
+            - ./protected/profiles:/app/protected/profiles
+            - ./static/profiles:/app/static/profiles
+        restart: unless-stopped
