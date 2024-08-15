@@ -45,7 +45,7 @@
 
 2) Create new directory called however you want and enter it
 
-3) Clone this repository:
+3) Clone this repository and enter its directory:
 ```
 git clone https://github.com/jedrzejme/YourOwnCard.git
 ```
