@@ -31,7 +31,6 @@
 
 **How to use it?**
 * [**Using version hosted by me**](https://your-own-card.jbs.ovh)
-* [**Using docker-compose**](https://github.com/jedrzejme/DynamicDNSUsingCloudflare/#using-docker-compose-to-run-dynamic-dns-using-cloudflare)
 
 **What did I use?**
 * [Python](https://www.python.org/)
