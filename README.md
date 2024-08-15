@@ -43,6 +43,7 @@
 * Creating your own card
 * Editing your own card with secret phrase protection provided by email
 * Option to disable editing after creation
+* Option to disable creating new profiles
 
 ## Purpose
 Simpler and free alternative to popular, similar web apps
