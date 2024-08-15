@@ -50,13 +50,18 @@
 git clone https://github.com/jedrzejme/YourOwnCard.git
 ```
 
-4) Edit config.ini
+4) Create docker image:
+```
+docker build -t your-own-card .
+```
 
-5) Run docker-compose in the same directory (by default it will run on port 5000):
+5) Edit config.ini
+
+6) Run docker-compose in the same directory (by default it will run on port 5000):
 ```
 docker-compose up -d
 ```
-6) It works!
+7) It works!
 
 ## Features
 * Creating your own card
