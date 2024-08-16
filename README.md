@@ -43,6 +43,9 @@
 * [Coding](https://code.visualstudio.com/)
 * [Git management](https://desktop.github.com/)
 
+## Preview of example profile
+[![](/assets/preview.png)](https://your-own-card.jbs.ovh/profile/jedrzej)
+
 ## Using docker-compose to run Your Own Card
 1) Install Docker and docker-compose
 
