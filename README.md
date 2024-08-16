@@ -29,8 +29,6 @@
 
 **What is this?** Web app for creating your own card. Backend is written in Flask (Python framework).
 
-[**Example profile**](https://your-own-card.jbs.ovh/profile/jedrzej)
-
 **How to use it?**
 * [**Using version hosted by me**](https://your-own-card.jbs.ovh)
 * [**Using docker-compose**](#using-docker-compose-to-run-your-own-card)
