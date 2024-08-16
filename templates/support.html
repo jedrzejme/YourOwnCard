@@ -7,6 +7,27 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/support-styles.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
+    <style>
+        body {
+            background-color: {{ default_background_color }};
+        }
+        .container {
+            background-color: {{ default_container_color }};
+        }
+        h1 {
+            color: {{ default_text_color }};
+        }
+        button {
+            background-color: {{ default_button_color}};
+            color: {{ default_button_text_color }};
+        }
+        button:hover {
+            background-color: {{ default_button_hover_color }};
+        }
+        a:link, a:visited {
+            color: {{ default_button_text_color }};
+        }
+    </style>
 </head>
 <body>
     <div class="container">

@@ -29,6 +29,8 @@ default_background_color = f"#{config.get('main', 'default_background_color')}"
 default_container_color = f"#{config.get('main', 'default_container_color')}"
 default_button_color = f"#{config.get('main', 'default_button_color')}"
 default_button_hover_color = f"#{config.get('main', 'default_button_hover_color')}"
+default_button_text_color = f"#{config.get('main', 'default_button_text_color')}"
+default_input_color = f"#{config.get('main', 'default_input_color')}"
 default_text_color = f"#{config.get('main', 'default_text_color')}"
 default_footer_color = f"#{config.get('main', 'default_footer_color')}"
 enable_creation_of_new_profiles = config.getboolean('main', 'enable_creation_of_new_profiles')
@@ -75,14 +77,15 @@ def send_secret_phrase(email, display_name, username, secret_phrase):
     
     return response
 
-def create_profile(username, email, display_name, background_color, container_color, button_color, button_hover_color, text_color, about_me, www, www_name, instagram, instagram_name, facebook, facebook_name, x, x_name, github, github_name, linkedin, linkedin_name, discord, steam, steam_name, profile_picture_path):
+def create_profile(username, email, display_name, background_color, container_color, button_color, button_hover_color, button_text_color, text_color, footer_color, about_me, www, www_name, instagram, instagram_name, facebook, facebook_name, x, x_name, github, github_name, linkedin, linkedin_name, discord, steam, steam_name, profile_picture_path):
     secret_phrase = generate_secret_phrase()
     background_color = background_color or default_background_color
     container_color = container_color or default_container_color
     button_color = button_color or default_button_color
     button_hover_color = button_hover_color or default_button_hover_color
+    button_text_color = button_text_color or default_button_text_color
     text_color = text_color or default_text_color
-    footer_color = default_footer_color
+    footer_color = footer_color or default_footer_color
     profile_picture_path = profile_picture_path or "default.jpg"
     www_name = www_name or www.rstrip('/').split('/')[-1]
     instagram_name = instagram_name or instagram.rstrip('/').split('/')[-1]
@@ -92,7 +95,7 @@ def create_profile(username, email, display_name, background_color, container_co
     linkedin_name = linkedin_name or "LinkedIn"
     steam_name = steam_name or steam.rstrip('/').split('/')[-1]
     profile_file = open(f"protected/profiles/{username}.txt", "w")
-    profile_file.write(f"email = {email}\nusername = {username}\ndisplay_name = {display_name}\nbackground_color = {background_color}\ncontainer_color = {container_color}\nbutton_color = {button_color}\nbutton_hover_color = {button_hover_color}\ntext_color = {text_color}\nfooter_color = {footer_color}\nabout_me = {about_me}\nwww = {www}\nwww_name = {www_name}\ninstagram_name = {instagram_name}\ninstagram = {instagram}\nfacebook_name = {facebook_name}\nfacebook = {facebook}\nx_name = {x_name}\nx = {x}\ngithub_name = {github_name}\ngithub = {github}\nlinkedin_name = {linkedin_name}\nlinkedin = {linkedin}\ndiscord = {discord}\nsteam_name = {steam_name}\nsteam = {steam}\nprofile_picture_path = {profile_picture_path}\nsecret_phrase = {secret_phrase}")
+    profile_file.write(f"email = {email}\nusername = {username}\ndisplay_name = {display_name}\nbackground_color = {background_color}\ncontainer_color = {container_color}\nbutton_color = {button_color}\nbutton_hover_color = {button_hover_color}\nbutton_text_color = {button_text_color}\ntext_color = {text_color}\nfooter_color = {footer_color}\nabout_me = {about_me}\nwww = {www}\nwww_name = {www_name}\ninstagram_name = {instagram_name}\ninstagram = {instagram}\nfacebook_name = {facebook_name}\nfacebook = {facebook}\nx_name = {x_name}\nx = {x}\ngithub_name = {github_name}\ngithub = {github}\nlinkedin_name = {linkedin_name}\nlinkedin = {linkedin}\ndiscord = {discord}\nsteam_name = {steam_name}\nsteam = {steam}\nprofile_picture_path = {profile_picture_path}\nsecret_phrase = {secret_phrase}")
     profile_file.close()
     send_secret_phrase(email, display_name, username, secret_phrase)
 
@@ -105,7 +108,9 @@ def create_profile_with_picture():
         container_color = request.form.get("container-color")
         button_color = request.form.get("button-color")
         button_hover_color = request.form.get("button-hover-color")
+        button_text_color = request.form.get("button-text-color")
         text_color = request.form.get("text-color")
+        footer_color = request.form.get("footer-color")
         about_me = request.form.get("about-me")
         www_name = request.form.get("www-name")
         www = request.form.get("www")
@@ -144,7 +149,7 @@ def create_profile_with_picture():
         else:
             return redirect(request.url)
 
-        create_profile(username, email, display_name, background_color, container_color, button_color, button_hover_color, text_color, about_me, www, www_name, instagram, instagram_name, facebook, facebook_name, x, x_name, github, github_name, linkedin, linkedin_name, discord, steam, steam_name, profile_picture_path)
+        create_profile(username, email, display_name, background_color, container_color, button_color, button_hover_color, button_text_color, text_color, footer_color, about_me, www, www_name, instagram, instagram_name, facebook, facebook_name, x, x_name, github, github_name, linkedin, linkedin_name, discord, steam, steam_name, profile_picture_path)
         
         return redirect(f"/profile/{username}")
     
@@ -162,12 +167,12 @@ def protected_file(filename):
 
 @app.route('/')
 def index():
-    return render_template('index.html', app_name = app_name, enable_creation_of_new_profiles=enable_creation_of_new_profiles, enable_editing_after_creation=enable_editing_after_creation)
+    return render_template('index.html', app_name = app_name, default_background_color=default_background_color, default_container_color=default_container_color, default_button_color=default_button_color, default_button_hover_color = default_button_hover_color, default_button_text_color = default_button_text_color, default_input_color = default_input_color, default_text_color = default_text_color, default_footer_color = default_footer_color, enable_creation_of_new_profiles=enable_creation_of_new_profiles, enable_editing_after_creation=enable_editing_after_creation)
 
 @app.route('/create-profile', methods=['GET', 'POST'])
 def create_your_own():
     if enable_creation_of_new_profiles:
-        return render_template('create-profile.html', enable_editing_after_creation=enable_editing_after_creation)
+        return render_template('create-profile.html', default_background_color=default_background_color, default_container_color=default_container_color, default_button_color=default_button_color, default_button_hover_color = default_button_hover_color, default_button_text_color = default_button_text_color, default_input_color = default_input_color, default_text_color = default_text_color, default_footer_color = default_footer_color, enable_editing_after_creation=enable_editing_after_creation)
 
 @app.route('/submit-creation-of-profile', methods=['GET', 'POST'])
 def submit_creation_of_profile():
@@ -182,7 +187,7 @@ def submit_creation_of_profile():
 @app.route('/edit-profile', methods=['GET', 'POST'])
 def edit_profile():
     if enable_editing_after_creation:
-        return render_template('edit-profile.html')
+        return render_template('edit-profile.html', default_background_color=default_background_color, default_container_color=default_container_color, default_button_color=default_button_color, default_button_hover_color = default_button_hover_color, default_button_text_color = default_button_text_color, default_input_color = default_input_color, default_text_color = default_text_color, default_footer_color = default_footer_color)
 
 @app.route('/submit-edition-of-profile', methods=['GET', 'POST'])
 def submit_edition_of_profile():
@@ -208,7 +213,7 @@ def profile(username):
 
 @app.route('/support')
 def support():
-    return render_template('support.html')
+    return render_template('support.html', default_background_color=default_background_color, default_container_color=default_container_color, default_button_color=default_button_color, default_button_hover_color = default_button_hover_color, default_button_text_color = default_button_text_color, default_input_color = default_input_color, default_text_color = default_text_color, default_footer_color = default_footer_color)
 
 if __name__ == '__main__':
     app.run(host="localhost", port=port)

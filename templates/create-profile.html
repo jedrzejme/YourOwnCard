@@ -7,6 +7,37 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/create-profile-styles.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
+    <style>
+        body {
+            background-color: {{ default_background_color}};
+        }
+        .form-container {
+            background-color: {{ default_container_color }};
+        }
+        h1 {
+            color: {{ default_text_color }};
+        }
+        label {
+            color: {{ default_text_color }};
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="url"],
+        textarea {
+            border: 1px solid {{ default_input_color }};
+            background-color: {{ default_input_color}};
+        }
+        button {
+            background-color: {{ default_button_color}};
+            color: {{ default_button_text_color }};
+        }
+        button:hover {
+            background-color: {{ default_button_hover_color }};
+        }
+        .footer {
+            color: {{ default_footer_color }};
+        }
+    </style>
 </head>
 <body>
     <div class="form-container">
@@ -28,31 +59,43 @@
             <br>
 
             <label for="background-color">Background color</label>
-            <input type="color" id="background-color" name="background-color" value="#C2C2B6">
+            <input type="color" id="background-color" name="background-color" value="{{ default_background_color}}">
 
             <br>
             <br>
 
             <label for="container-color">Container color</label>
-            <input type="color" id="container-color" name="container-color" value="#D1D1C5">
+            <input type="color" id="container-color" name="container-color" value="{{ default_container_color }}">
 
             <br>
             <br>
 
             <label for="button-color">Button color</label>
-            <input type="color" id="button-color" name="button-color" value="#B0B0A5">
+            <input type="color" id="button-color" name="button-color" value="{{ default_button_color}}">
 
             <br>
             <br>
 
             <label for="button-hover-color">Button hover color</label>
-            <input type="color" id="button-hover-color" name="button-hover-color" value="#A0A09A">
+            <input type="color" id="button-hover-color" name="button-hover-color" value="{{ default_button_hover_color }}">
+
+            <br>
+            <br>
+
+            <label for="button-text-color">Button text color</label>
+            <input type="color" id="button-text-color" name="button-text-color" value="{{ default_button_text_color }}">
 
             <br>
             <br>
 
             <label for="text-color">Text color</label>
-            <input type="color" id="text-color" name="text-color" value="#000000">
+            <input type="color" id="text-color" name="text-color" value="{{ default_text_color }}">
+
+            <br>
+            <br>
+
+            <label for="footer-color">Footer color</label>
+            <input type="color" id="footer-color" name="footer-color" value="{{ default_footer_color }}">
 
             <br>
             <br>
