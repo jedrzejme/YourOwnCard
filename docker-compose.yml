@@ -7,4 +7,5 @@ services:
         volumes:
             - ./protected/profiles:/app/protected/profiles
             - ./static/profiles:/app/static/profiles
+            - ./config.ini:/app/config.ini
         restart: unless-stopped
