@@ -36,7 +36,6 @@ default_text_color = f"#{config.get('main', 'default_text_color')}"
 default_footer_color = f"#{config.get('main', 'default_footer_color')}"
 enable_creation_of_new_profiles = config.getboolean('main', 'enable_creation_of_new_profiles')
 enable_editing_after_creation = config.getboolean('main', 'enable_editing_after_creation')
-mailgun_api_key = config.get('main', 'mailgun_api_key')
 
 def allowed_file(filename):
     """Check if the file has an allowed extension."""
