@@ -4,6 +4,7 @@ import requests
 import secrets
 import string
 import json
+import hashlib
 from configparser import ConfigParser
 config = ConfigParser()
 
@@ -51,34 +52,13 @@ def load_profile(file_path):
                 profile[key.strip()] = value.strip()
     return profile
 
-def generate_secret_phrase(length=32):
-    characters = string.ascii_letters + string.digits
-    return ''.join(secrets.choice(characters) for _ in range(length))
+def hash_password(password):
+    hashed_password = hashlib.sha256(password.encode()).hexdigest()
+    return hashed_password
 
-def send_secret_phrase(email, display_name, username, secret_phrase):
-    url = "https://api.mailgun.net/v3/sandboxc97bb77629c84370a545633d3715f229.mailgun.org/messages"
-    
-    mailgun_vars = json.dumps({
-        "username": username,
-        "secret_phrase": secret_phrase
-    })
-    
-    response = requests.post(
-        url,
-        auth=("api", f"{mailgun_api_key}"),
-        data={
-            "from": "Mailgun Sandbox <postmaster@sandboxc97bb77629c84370a545633d3715f229.mailgun.org>",
-            "to": f"{display_name} <{email}>",
-            "subject": "Your Secret Phrase for Card.io",
-            "template": "secret phrase",
-            "h:X-Mailgun-Variables": mailgun_vars
-        }
-    )
-    
-    return response
-
-def create_profile(username, email, display_name, background_color, container_color, button_color, button_hover_color, button_text_color, text_color, footer_color, about_me, www, www_name, instagram, instagram_name, facebook, facebook_name, x, x_name, github, github_name, linkedin, linkedin_name, discord, steam, steam_name, profile_picture_path):
-    secret_phrase = generate_secret_phrase()
+def create_profile(email, username, password, display_name, background_color, container_color, button_color, button_hover_color, button_text_color, text_color, footer_color, about_me, www, www_name, instagram, instagram_name, facebook, facebook_name, x, x_name, github, github_name, linkedin, linkedin_name, discord, steam, steam_name, profile_picture_path):
+    password = password
+    hashed_password = hash_password(password)
     background_color = background_color or default_background_color
     container_color = container_color or default_container_color
     button_color = button_color or default_button_color
@@ -95,14 +75,14 @@ def create_profile(username, email, display_name, background_color, container_co
     linkedin_name = linkedin_name or "LinkedIn"
     steam_name = steam_name or steam.rstrip('/').split('/')[-1]
     profile_file = open(f"protected/profiles/{username}.txt", "w")
-    profile_file.write(f"email = {email}\nusername = {username}\ndisplay_name = {display_name}\nbackground_color = {background_color}\ncontainer_color = {container_color}\nbutton_color = {button_color}\nbutton_hover_color = {button_hover_color}\nbutton_text_color = {button_text_color}\ntext_color = {text_color}\nfooter_color = {footer_color}\nabout_me = {about_me}\nwww = {www}\nwww_name = {www_name}\ninstagram_name = {instagram_name}\ninstagram = {instagram}\nfacebook_name = {facebook_name}\nfacebook = {facebook}\nx_name = {x_name}\nx = {x}\ngithub_name = {github_name}\ngithub = {github}\nlinkedin_name = {linkedin_name}\nlinkedin = {linkedin}\ndiscord = {discord}\nsteam_name = {steam_name}\nsteam = {steam}\nprofile_picture_path = {profile_picture_path}\nsecret_phrase = {secret_phrase}")
+    profile_file.write(f"email = {email}\nusername = {username}\nhashed_password = {hashed_password}\ndisplay_name = {display_name}\nbackground_color = {background_color}\ncontainer_color = {container_color}\nbutton_color = {button_color}\nbutton_hover_color = {button_hover_color}\nbutton_text_color = {button_text_color}\ntext_color = {text_color}\nfooter_color = {footer_color}\nabout_me = {about_me}\nwww = {www}\nwww_name = {www_name}\ninstagram_name = {instagram_name}\ninstagram = {instagram}\nfacebook_name = {facebook_name}\nfacebook = {facebook}\nx_name = {x_name}\nx = {x}\ngithub_name = {github_name}\ngithub = {github}\nlinkedin_name = {linkedin_name}\nlinkedin = {linkedin}\ndiscord = {discord}\nsteam_name = {steam_name}\nsteam = {steam}\nprofile_picture_path = {profile_picture_path}")
     profile_file.close()
-    send_secret_phrase(email, display_name, username, secret_phrase)
 
 def create_profile_with_picture():
     if request.method == "POST":
         email = request.form.get("email")
         username = request.form.get("username")
+        password = request.form.get("password")
         display_name = request.form.get("display-name")
         background_color = request.form.get("background-color")
         container_color = request.form.get("container-color")
@@ -149,7 +129,7 @@ def create_profile_with_picture():
         else:
             return redirect(request.url)
 
-        create_profile(username, email, display_name, background_color, container_color, button_color, button_hover_color, button_text_color, text_color, footer_color, about_me, www, www_name, instagram, instagram_name, facebook, facebook_name, x, x_name, github, github_name, linkedin, linkedin_name, discord, steam, steam_name, profile_picture_path)
+        create_profile(email, username, password, display_name, background_color, container_color, button_color, button_hover_color, button_text_color, text_color, footer_color, about_me, www, www_name, instagram, instagram_name, facebook, facebook_name, x, x_name, github, github_name, linkedin, linkedin_name, discord, steam, steam_name, profile_picture_path)
         
         return redirect(f"/profile/{username}")
     
@@ -193,12 +173,12 @@ def edit_profile():
 def submit_edition_of_profile():
     if enable_editing_after_creation:
         username = request.form.get("username")
-        secret_phrase_input = request.form.get("secret-phrase")
+        password = request.form.get("password")
         if not os.path.exists(f"protected/profiles/{username}.txt"):
             create_profile_with_picture()
         else:
             profile = load_profile(f"protected/profiles/{username}.txt")
-            if profile["secret_phrase"] == secret_phrase_input:
+            if profile["hashed_password"] == hash_password(password):
                 create_profile_with_picture()
             else:
                 return redirect("/edit-profile")

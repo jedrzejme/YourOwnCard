@@ -93,7 +93,7 @@ python app.py
 
 ## Features
 * Creating your own card
-* Editing your own card with secret phrase protection provided by email
+* Editing your own card with password protection
 * Option to disable editing after creation in config.ini
 * Option to disable creating new profiles in config.ini
 * Option to set different port in config.ini

@@ -23,6 +23,7 @@
         input[type="text"],
         input[type="email"],
         input[type="url"],
+        input[type="password"],
         textarea {
             border: 1px solid {{ default_input_color }};
             background-color: {{ default_input_color}};
@@ -49,8 +50,8 @@
             <label for="username">Username</label>
             <input type="text" id="username" name="username" pattern="[A-Za-z0-9]+" required>
 
-            <label for="secret-phrase">Secret phrase</label>
-            <input type="text" id="secret-phrase" name="secret-phrase" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
 
             <label for="display-name">Displayed name</label>
             <input type="text" id="display-name" name="display-name" required>
@@ -153,7 +154,6 @@
 
             <button type="submit">Submit</button>
         </form>
-        <div class="footer">After submitting edits, You will recive new secret phrase for later on edits.</div>
     </div>
 </body>
 </html>
