@@ -54,12 +54,12 @@
 git clone https://github.com/jedrzejme/YourOwnCard.git
 ```
 
-4) Create docker image:
+4) Edit config.ini (do not change port in config.ini; if you want to change external port change it in docker-compose.yml)
+
+5) Create docker image:
 ```
 docker build -t your-own-card .
 ```
-
-5) Edit config.ini
 
 6) Run docker-compose in the same directory (by default it will run on port 5000):
 ```
@@ -82,19 +82,21 @@ git clone https://github.com/jedrzejme/YourOwnCard.git
 python -m pip install -r requirements.txt
 ```
 
-5) Run app.py (by default it will run on port 5000):
+5) Edit config.ini
+
+6) Run app.py (by default it will run on port 5000):
 ```
 python app.py
 ```
 
-6) It works!
+7) It works!
 
 ## Features
 * Creating your own card
 * Editing your own card with secret phrase protection provided by email
 * Option to disable editing after creation in config.ini
 * Option to disable creating new profiles in config.ini
-* Option to set different port in config.ini (do not change if you're using docker-compose method)
+* Option to set different port in config.ini
 * Option to set app name in config.ini
 * Option to change colors in config.ini
 
