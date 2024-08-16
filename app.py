@@ -167,7 +167,7 @@ def index():
 @app.route('/create-profile', methods=['GET', 'POST'])
 def create_your_own():
     if enable_creation_of_new_profiles:
-        return render_template('create-profile.html')
+        return render_template('create-profile.html', enable_editing_after_creation=enable_editing_after_creation)
 
 @app.route('/submit-creation-of-profile', methods=['GET', 'POST'])
 def submit_creation_of_profile():
