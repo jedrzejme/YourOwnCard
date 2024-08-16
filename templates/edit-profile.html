@@ -26,7 +26,7 @@
         input[type="password"],
         textarea {
             border: 1px solid {{ default_input_color }};
-            background-color: {{ default_input_color}};
+            background-color: {{ default_input_color }};
         }
         button {
             background-color: {{ default_button_color}};
@@ -43,114 +43,105 @@
 <body>
     <div class="form-container">
         <h1>Edit your card</h1>
-        <form method="post" enctype="multipart/form-data" action="/submit-edition-of-profile">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" pattern="[A-Za-z0-9]+" required>
-
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-
+        <form method="post" enctype="multipart/form-data" action="/submit-edition-of-profile/{{ username }}/{{ password }}">
             <label for="display-name">Displayed name</label>
-            <input type="text" id="display-name" name="display-name" required>
+            <input type="text" id="display-name" name="display-name" value="{{ display_name }}" required>
 
             <label for="profile-picture">Profile picture (png, jpeg or jpg, max 5 MB)</label>
-            <input type="file" id="profile-picture" name="profile-picture" accept="image/png, image/jpeg, image/jpg" required>
+            <input type="file" id="profile-picture" name="profile-picture" accept="image/png, image/jpeg, image/jpg">
             
             <br>
             <br>
 
             <label for="background-color">Background color</label>
-            <input type="color" id="background-color" name="background-color" value="{{ default_background_color}}">
+            <input type="color" id="background-color" name="background-color" value="{{ background_color}}">
 
             <br>
             <br>
 
             <label for="container-color">Container color</label>
-            <input type="color" id="container-color" name="container-color" value="{{ default_container_color }}">
+            <input type="color" id="container-color" name="container-color" value="{{ container_color }}">
 
             <br>
             <br>
 
             <label for="button-color">Button color</label>
-            <input type="color" id="button-color" name="button-color" value="{{ default_button_color}}">
+            <input type="color" id="button-color" name="button-color" value="{{ button_color}}">
 
             <br>
             <br>
 
             <label for="button-hover-color">Button hover color</label>
-            <input type="color" id="button-hover-color" name="button-hover-color" value="{{ default_button_hover_color }}">
+            <input type="color" id="button-hover-color" name="button-hover-color" value="{{ button_hover_color }}">
 
             <br>
             <br>
 
             <label for="button-text-color">Button text color</label>
-            <input type="color" id="button-text-color" name="button-text-color" value="{{ default_button_text_color }}">
+            <input type="color" id="button-text-color" name="button-text-color" value="{{ button_text_color }}">
 
             <br>
             <br>
 
             <label for="footer-color">Footer color</label>
-            <input type="color" id="footer-color" name="footer-color" value="{{ default_footer_color }}">
+            <input type="color" id="footer-color" name="footer-color" value="{{ footer_color }}">
 
             <br>
             <br>
 
             <label for="text-color">Text color</label>
-            <input type="color" id="text-color" name="text-color" value="{{ default_text_color }}">
+            <input type="color" id="text-color" name="text-color" value="{{ text_color }}">
 
             <br>
             <br>
 
             <label for="about-me">About me</label>
-            <textarea id="about-me" name="about-me" rows="4" required></textarea>
+            <input type="text" id="about-me" name="about-me" value="{{ about_me }}" required></input>
 
             <label for="www-name">Your Website - displayed name (how it will appear in Accounts section)</label>
-            <input type="text" id="www-name" name="www-name">
+            <input type="text" id="www-name" name="www-name" value="{{ www_name }}">
 
             <label for="www">Your Website (link)</label>
-            <input type="url" id="www" name="www">
+            <input type="url" id="www" name="www" value="{{ www }}">
 
             <label for="instagram-name">Instagram - displayed name (how it will appear in Accounts section)</label>
-            <input type="text" id="instagram-name" name="instagram-name">
+            <input type="text" id="instagram-name" name="instagram-name" value="{{ instagram_name }}">
 
             <label for="instagram">Instagram (link)</label>
-            <input type="url" id="instagram" name="instagram">
+            <input type="url" id="instagram" name="instagram" value="{{ instagram }}">
 
             <label for="facebook-name">Facebook - displayed name (how it will appear in Accounts section)</label>
-            <input type="text" id="facebook-name" name="facebook-name">
+            <input type="text" id="facebook-name" name="facebook-name" value="{{ facebook_name }}">
 
             <label for="facebook">Facebook (link)</label>
-            <input type="url" id="facebook" name="facebook">
+            <input type="url" id="facebook" name="facebook" value="{{ facebook }}">
 
             <label for="x-name">X - displayed name (how it will appear in Accounts section)</label>
-            <input type="text" id="x-name" name="x-name">
+            <input type="text" id="x-name" name="x-name" value="{{ x_name }}">
 
             <label for="x">X (link)</label>
-            <input type="url" id="x" name="x">
+            <input type="url" id="x" name="x" value="{{ x }}">
             
             <label for="github-name">GitHub - displayed name (how it will appear in Accounts section)</label>
-            <input type="text" id="github-name" name="github-name">
+            <input type="text" id="github-name" name="github-name" value="{{ github_name }}">
 
             <label for="github">GitHub (link)</label>
-            <input type="url" id="github" name="github">
+            <input type="url" id="github" name="github" value="{{ github }}">
 
             <label for="linkedin-name">LinkedIn - displayed name (how it will appear in Accounts section)</label>
-            <input type="text" id="linkedin-name" name="linkedin-name">
+            <input type="text" id="linkedin-name" name="linkedin-name" value="{{ linkedin_name }}">
 
             <label for="linkedin">LinkedIn (link)</label>
-            <input type="url" id="linkedin" name="linkedin">
+            <input type="url" id="linkedin" name="linkedin" value="{{ linkedin }}">
 
             <label for="discord">Discord (username)</label>
-            <input type="text" id="discord" name="discord">
+            <input type="text" id="discord" name="discord" value="{{ discord }}">
 
             <label for="steam-name">Steam - displayed name (how it will appear in Accounts section)</label>
-            <input type="text" id="steam-name" name="steam-name">
+            <input type="text" id="steam-name" name="steam-name" value="{{ steam_name }}">
 
             <label for="steam">Steam (link)</label>
-            <input type="url" id="steam" name="steam">
+            <input type="url" id="steam" name="steam" value="{{ steam }}">
 
             <button type="submit">Submit</button>
         </form>
