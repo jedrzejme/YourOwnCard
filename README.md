@@ -77,7 +77,7 @@ docker-compose up -d
 git clone https://github.com/jedrzejme/YourOwnCard.git
 ```
 
-4) Install requirements.txt
+4) Install requirements.txt:
 ```
 python -m pip install -r requirements.txt
 ```
