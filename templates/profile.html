@@ -52,15 +52,22 @@
         <img src="{{ url_for('static', filename='profiles/' + profile_picture_path) }}" class="img-profile-picture">
         <div class="username"><h2> {{ display_name }} </h2></div>
         <div class="tabs">
+            {% if about_me %}
             <button class="tab-button" onclick="showTab('about')">About Me</button>
+            {% endif %}
+            {% if www or instagram or facebook or x or github or linkedin or discord or steam %}
             <button class="tab-button" onclick="showTab('accounts')">Accounts</button>
+            {% endif %}
         </div>
+        {% if about_me %}
         <div id="about" class="tab-content">
             <h2>About Me</h2>
             <p>
                 {{ about_me }}
             </p>
         </div>
+        {% endif %}
+        {% if www or instagram or facebook or x or github or linkedin or discord or steam %}
         <div id="accounts" class="tab-content">
             <h2>Accounts</h2>
             <p class="accounts">
@@ -92,6 +99,7 @@
             </ul>
             </p>
         </div>
+        {% endif %}
         <div class="footer"><a href="/" target="_blank"> Created with {{ app_name }} </a></div>
     </div>
 
