@@ -45,7 +45,7 @@
 [![](/assets/preview.png)](https://your-own-card.jbs.ovh/profile/jedrzej)
 
 ## Using docker-compose to run Your Own Card
-1) Install Docker and docker-compose
+1) Install Docker, docker-compose and git
 
 2) Create new directory called however you want and enter it
 
@@ -61,11 +61,12 @@ git clone https://github.com/jedrzejme/YourOwnCard.git
 docker build -t your-own-card .
 ```
 
-1) Run docker-compose (by default it will run on port 5000):
+6) Run docker-compose (by default it will run on port 5000):
 ```
 docker-compose up -d
 ```
-1) It works!
+
+7) It works!
 
 ## Using Python to run Your Own Card
 1) Install Python
