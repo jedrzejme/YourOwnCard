@@ -1,2 +1,3 @@
 static/profiles/*
+!static/profiles/default.png
 protected/profiles/*

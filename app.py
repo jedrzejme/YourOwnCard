@@ -125,8 +125,10 @@ def create_profile_with_picture(editing, email, username, password, display_name
                     return redirect(request.url)
             else:
                 return redirect(request.url)
-        else:
+        elif not profile_picture and editing:
             profile_picture_path = load_profile(f"protected/profiles/{username}.txt")["profile_picture_path"]
+        else:
+            profile_picture_path = "default.png"
 
         create_profile(editing, email, username, password, display_name, background_color, container_color, button_color, button_hover_color, button_text_color, text_color, footer_color, about_me, www, www_name, instagram, instagram_name, facebook, facebook_name, x, x_name, github, github_name, linkedin, linkedin_name, discord, steam, steam_name, profile_picture_path)
         
