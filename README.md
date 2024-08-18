@@ -61,11 +61,11 @@ git clone https://github.com/jedrzejme/YourOwnCard.git
 docker build -t your-own-card .
 ```
 
-6) Run docker-compose in the same directory (by default it will run on port 5000):
+1) Run docker-compose (by default it will run on port 5000):
 ```
 docker-compose up -d
 ```
-7) It works!
+1) It works!
 
 ## Using Python to run Your Own Card
 1) Install Python
