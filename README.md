@@ -46,47 +46,37 @@
 
 ## Using docker-compose to run Your Own Card
 1) Install Docker, docker-compose and Git
-
 2) Clone this repository and enter its directory:
 ```
 git clone https://github.com/jedrzejme/YourOwnCard.git
 ```
-
 3) Edit config.ini (do not change port in config.ini; if you want to change external port change it in docker-compose.yml)
-
 4) Create docker image:
 ```
 docker build -t your-own-card .
 ```
-
 5) Run docker-compose (by default it will run on port 5000):
 ```
 docker-compose up -d
 ```
-
 6) It works!
 
 ## Using Python to run Your Own Card
 1) Install Python
-
-3) Clone this repository and enter its directory:
+2) Clone this repository and enter its directory:
 ```
 git clone https://github.com/jedrzejme/YourOwnCard.git
 ```
-
-4) Install requirements.txt:
+3) Install requirements.txt:
 ```
 python -m pip install -r requirements.txt
 ```
-
-5) Edit config.ini
-
-6) Run app.py (by default it will run on port 5000):
+4) Edit config.ini
+5) Run app.py (by default it will run on port 5000):
 ```
 python app.py
 ```
-
-7) It works!
+6) It works!
 
 ## Features
 * Creating your own card
@@ -98,14 +88,14 @@ python app.py
 * Option to change colors in config.ini
 
 ## Supported social medias
-1) Your website
-2) Instagram
-3) Facebook
-4) X
-5) GitHub
-6) LinkedIn
-7) Discord
-8) Steam
+* Your website
+* Instagram
+* Facebook
+* X
+* GitHub
+* LinkedIn
+* Discord
+* Steam
 
 ## Purpose
 Simpler and free alternative to popular, similar web apps
