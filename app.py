@@ -208,6 +208,8 @@ def edit_profile_auth():
 def edit_profile():
     username = request.form.get("username")
     password = request.form.get("""password""")
+    if not os.path.exists(f"protected/profiles/{username}.txt"):
+        raise CustomError(404, "Profile not found.", "/edit-profile-auth")
     profile = load_profile(f"protected/profiles/{username}.txt")
     hashed_password = hash_password(password)
     if profile["""hashed_password"""] == hashed_password:
@@ -269,6 +271,8 @@ def submit_edition_of_profile(username, password):
 
 @app.route('/profile/<username>')
 def profile(username):
+    if not os.path.exists(f"protected/profiles/{username}.txt"):
+        raise CustomError(404, "Profile not found.", "/")
     profile = load_profile(f"protected/profiles/{username}.txt")
     return render_template("profile.html",
                         app_name = app_name,
