@@ -160,7 +160,7 @@ def create_your_own():
 def submit_creation_of_profile():
     if enable_creation_of_new_profiles:
         username = request.form.get("username")
-        if not os.path.exists(f"protected/profiles/{username}.txt"):
+        if not os.path.exists(f"protected/profiles/{username}.txt") and not username == "default":
             editing = False
             profile_picture = request.files['profile-picture']
             email = request.form.get("email")
