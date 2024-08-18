@@ -27,24 +27,24 @@
 
 <br>
 
-**What is this?** Web app for creating your own card. Backend is written in Flask (Python framework).
+**❓ What is this?** Web app for creating your own card. Backend is written in Flask (Python framework).
 
-**How to use it?**
+**❓ How to use it?**
 * [**Using version hosted by me**](https://your-own-card.jbs.ovh)
 * [**Using docker-compose**](#using-docker-compose-to-run-your-own-card)
 * [**Using Python**](#using-python-to-run-your-own-card)
 
-**What did I use?**
+**❓ What did I use?**
 * [Python](https://www.python.org/)
 * [Python libraries](/requirements.txt)
 * [Docker](https://www.docker.com/)
 * [Coding](https://code.visualstudio.com/)
 * [Git management](https://desktop.github.com/)
 
-## Preview of example profile
+## 📷 Preview of example profile
 [![](/assets/preview.png)](https://your-own-card.jbs.ovh/profile/jedrzej)
 
-## Using docker-compose to run Your Own Card
+## 🐳 Using docker-compose to run Your Own Card
 1) Install Docker, docker-compose and Git
 2) Clone this repository and enter its directory:
 ```
@@ -61,7 +61,7 @@ docker-compose up -d
 ```
 6) It works!
 
-## Using Python to run Your Own Card
+## 🐍 Using Python to run Your Own Card
 1) Install Python
 2) Clone this repository and enter its directory:
 ```
@@ -78,7 +78,7 @@ python app.py
 ```
 6) It works!
 
-## Features
+## 🚀 Features
 * Creating your own card
 * Editing your own card with password protection
 * Option to disable editing after creation in config.ini
@@ -87,7 +87,7 @@ python app.py
 * Option to set app name in config.ini
 * Option to change colors in config.ini
 
-## Supported social medias
+## 🚀 Supported social medias
 * Your website
 * Instagram
 * Facebook
@@ -97,8 +97,8 @@ python app.py
 * Discord
 * Steam
 
-## Purpose
+## ❓ Purpose
 Simpler and free alternative to popular, similar web apps
 
-## Support
+## 💲 Support
 <p><a href="https://support.jedrzej.me/" target="_blank"> <img align="left" src="https://raw.githubusercontent.com/jedrzejme/jedrzejme/main/assets/supportme.svg" height="50" width="210" alt="jedrzejme" /></a></p>
