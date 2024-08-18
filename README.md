@@ -81,9 +81,11 @@ python app.py
 ## 🚀 Features
 * Creating your own card
 * Editing your own card with password protection
+* Custom error handling
 * Option to disable editing after creation in config.ini
 * Option to disable creating new profiles in config.ini
 * Option to set different port in config.ini
+* Option to enable debug in config.ini
 * Option to set app name in config.ini
 * Option to change colors in config.ini
 
