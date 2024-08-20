@@ -89,7 +89,6 @@ def create_profile(editing, email, username, password, display_name, background_
     profile_file = open(f"protected/profiles/{username}.txt", "w")
     profile_file.write(f"""email = {email}\nusername = {username}\nhashed_password = {hashed_password}\ndisplay_name = {display_name}\nbackground_color = {background_color}\ncontainer_color = {container_color}\nbutton_color = {button_color}\nbutton_hover_color = {button_hover_color}\nbutton_text_color = {button_text_color}\ntext_color = {text_color}\nfooter_color = {footer_color}\nabout_me = {about_me}\nwww = {www}\nwww_name = {www_name}\ninstagram_name = {instagram_name}\ninstagram = {instagram}\nfacebook_name = {facebook_name}\nfacebook = {facebook}\nx_name = {x_name}\nx = {x}\ngithub_name = {github_name}\ngithub = {github}\nlinkedin_name = {linkedin_name}\nlinkedin = {linkedin}\ndiscord = {discord}\nsteam_name = {steam_name}\nsteam = {steam}\nprofile_picture_path = {profile_picture_path}""")
     profile_file.close()
-    return redirect(f"/profile/{username}")
 
 def create_profile_with_picture(editing, email, username, password, display_name, profile_picture, background_color, container_color, button_color, button_hover_color, button_text_color, text_color, footer_color, about_me, www, www_name, instagram, instagram_name, facebook, facebook_name, x, x_name, github, github_name, linkedin, linkedin_name, discord, steam, steam_name):
     if request.method == "POST":
@@ -117,6 +116,7 @@ def create_profile_with_picture(editing, email, username, password, display_name
         x_name = request.form.get("x-name")
         github = request.form.get("github")
         github_name = request.form.get("github-name")
+
 
         if profile_picture:
             if 'profile-picture' in request.files:
@@ -191,11 +191,11 @@ def submit_creation_of_profile():
             github = request.form.get("github")
             github_name = request.form.get("github-name")
             create_profile_with_picture(editing = editing, email=email, username=username, password=password, display_name=display_name, profile_picture=profile_picture, background_color=background_color, container_color=container_color, button_color=button_color, button_hover_color=button_hover_color, button_text_color=button_text_color, text_color=text_color, footer_color=footer_color, about_me=about_me, www=www, www_name=www_name, instagram=instagram, instagram_name=instagram_name, facebook=facebook, facebook_name=facebook_name, x=x, x_name=x_name, github=github, github_name=github_name, linkedin=linkedin, linkedin_name=linkedin_name, discord=discord, steam=steam, steam_name=steam_name)
+            return redirect(f"/profile/{username}")
         else:
             raise CustomError(403, "Username already exists.", "/create-profile")
     else:
         raise CustomError(403, "Creation of new profiles is disabled.", "/")
-    return redirect(f"/profile/{username}")
 
 @app.route('/edit-profile-auth', methods=['GET', 'POST'])
 def edit_profile_auth():
@@ -262,10 +262,11 @@ def submit_edition_of_profile(username, password):
             else:
                 return redirect(request.url)
         elif not profile_picture and editing:
-            profile_picture_path = load_profile(f"protected/profiles/{username}.txt")["profile_picture_path"]
+            profile_picture = load_profile(f"protected/profiles/{username}.txt")["profile_picture_path"]
         elif not profile_picture and not editing:
-            profile_picture_path = "default.png"
-        create_profile_with_picture(editing = editing, email=email, username=username, password=password, display_name=display_name, profile_picture=profile_picture_path, background_color=background_color, container_color=container_color, button_color=button_color, button_hover_color=button_hover_color, button_text_color=button_text_color, text_color=text_color, footer_color=footer_color, about_me=about_me, www=www, www_name=www_name, instagram=instagram, instagram_name=instagram_name, facebook=facebook, facebook_name=facebook_name, x=x, x_name=x_name, github=github, github_name=github_name, linkedin=linkedin, linkedin_name=linkedin_name, discord=discord, steam=steam, steam_name=steam_name)
+            profile_picture = "default.png"
+        create_profile_with_picture(editing = editing, email=email, username=username, password=password, display_name=display_name, profile_picture=profile_picture, background_color=background_color, container_color=container_color, button_color=button_color, button_hover_color=button_hover_color, button_text_color=button_text_color, text_color=text_color, footer_color=footer_color, about_me=about_me, www=www, www_name=www_name, instagram=instagram, instagram_name=instagram_name, facebook=facebook, facebook_name=facebook_name, x=x, x_name=x_name, github=github, github_name=github_name, linkedin=linkedin, linkedin_name=linkedin_name, discord=discord, steam=steam, steam_name=steam_name)
+        return redirect(f"/profile/{username}")
     else:
         raise CustomError(403, "Editing of profiles is disabled.", "/")
 
