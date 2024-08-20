@@ -117,7 +117,6 @@ def create_profile_with_picture(editing, email, username, password, display_name
         github = request.form.get("github")
         github_name = request.form.get("github-name")
 
-
         if profile_picture:
             if 'profile-picture' in request.files:
                 file = profile_picture
@@ -261,10 +260,6 @@ def submit_edition_of_profile(username, password):
                     raise CustomError(400, "File extension not allowed. Please upload a .png, .jpg or .jpeg file.", "/edit-profile-auth")
             else:
                 return redirect(request.url)
-        elif not profile_picture and editing:
-            profile_picture = load_profile(f"protected/profiles/{username}.txt")["profile_picture_path"]
-        elif not profile_picture and not editing:
-            profile_picture = "default.png"
         create_profile_with_picture(editing = editing, email=email, username=username, password=password, display_name=display_name, profile_picture=profile_picture, background_color=background_color, container_color=container_color, button_color=button_color, button_hover_color=button_hover_color, button_text_color=button_text_color, text_color=text_color, footer_color=footer_color, about_me=about_me, www=www, www_name=www_name, instagram=instagram, instagram_name=instagram_name, facebook=facebook, facebook_name=facebook_name, x=x, x_name=x_name, github=github, github_name=github_name, linkedin=linkedin, linkedin_name=linkedin_name, discord=discord, steam=steam, steam_name=steam_name)
         return redirect(f"/profile/{username}")
     else:
