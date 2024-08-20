@@ -53,14 +53,14 @@
         <div class="username"><h2> {{ display_name }} </h2></div>
         <div class="tabs">
             {% if about_me %}
-            <button class="tab-button" onclick="showTab('about')">About Me</button>
+            <button class="tab-button" onclick="showTab('about-me')">About Me</button>
             {% endif %}
             {% if www or instagram or facebook or x or github or linkedin or discord or steam %}
             <button class="tab-button" onclick="showTab('accounts')">Accounts</button>
             {% endif %}
         </div>
         {% if about_me %}
-        <div id="about" class="tab-content">
+        <div id="about-me" class="tab-content">
             <h2>About Me</h2>
             <p>
                 {{ about_me }}
@@ -104,6 +104,18 @@
     </div>
 
     <script src="{{ url_for('static', filename='js/profile-scripts.js') }}"></script>
+    
+    {% if www or instagram or facebook or x or github or linkedin or discord or steam %}
+    <script>
+        showTab('accounts');
+    </script>
+    {% endif %}
+    {% if about_me %}
+    <script>
+        showTab('about-me');
+    </script>
+    {% endif %}
+
     <script>
         // Function to update all canvas elements
         function updateCanvasIcons() {

@@ -6,8 +6,3 @@ function showTab(tabName) {
     }
     document.getElementById(tabName).style.display = "block";
 }
-
-// Display the "About Me" tab by default
-document.addEventListener("DOMContentLoaded", function() {
-    showTab('about');
-});
