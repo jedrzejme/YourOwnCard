@@ -81,6 +81,7 @@ python app.py
 ## 🚀 Features
 * Creating your own card
 * Editing your own card with password protection
+* Password resetting by clicking link sent by email
 * Custom error handling
 * Option to disable editing after creation in config.ini
 * Option to disable creating new profiles in config.ini
