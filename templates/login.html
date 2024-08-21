@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Your Card</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit-profile-auth-styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login-styles.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
     <style>
@@ -52,6 +52,9 @@
 
             <button type="submit">Login</button>
         </form>
+        {% if enable_password_resetting %}
+        <a href="/reset-password" style="font-style: italic;"><div class="footer">Forgot password?</div></a>
+        {% endif %}
     </div>
 </body>
 </html>

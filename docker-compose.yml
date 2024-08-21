@@ -6,6 +6,7 @@ services:
         image: your-own-card
         volumes:
             - ./protected/profiles:/app/protected/profiles
+            - ./protected/tokens:/app/protected/tokens
             - ./static/profiles:/app/static/profiles
             - ./config.ini:/app/config.ini
         restart: unless-stopped
