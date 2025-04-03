@@ -30,7 +30,6 @@
 **❓ What is this?** Web app for creating your own card. Backend is written in Flask (Python framework).
 
 **❓ How to use it?**
-* [**Using version hosted by me**](https://your-own-card.jbs.ovh)
 * [**Using docker-compose**](#using-docker-compose-to-run-your-own-card)
 * [**Using Python**](#using-python-to-run-your-own-card)
 
