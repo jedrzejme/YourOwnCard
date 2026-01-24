@@ -11,17 +11,17 @@
 </h1>
 
 <div align = 'center'>
-    <a href = 'https://github.com/jedrzejme/YourOwnCard/'>
-        <img src = 'https://img.shields.io/github/stars/jedrzejme/YourOwnCard?style=for-the-badge&color=%23cfb002'/>
+    <a href = 'https://github.com/jbakalarski/YourOwnCard/'>
+        <img src = 'https://img.shields.io/github/stars/jbakalarski/YourOwnCard?style=for-the-badge&color=%23cfb002'/>
     </a>
-    <a href = 'https://github.com/jedrzejme/YourOwnCard/tags'>
-        <img src = 'https://img.shields.io/github/v/tag/jedrzejme/YourOwnCard?style=for-the-badge&label=version'/>
+    <a href = 'https://github.com/jbakalarski/YourOwnCard/tags'>
+        <img src = 'https://img.shields.io/github/v/tag/jbakalarski/YourOwnCard?style=for-the-badge&label=version'/>
     </a>
-    <a href = 'https://github.com/jedrzejme/YourOwnCard/issues'>
-        <img src = 'https://img.shields.io/github/issues/jedrzejme/YourOwnCard?style=for-the-badge&color=%23ff6f00'/>
+    <a href = 'https://github.com/jbakalarski/YourOwnCard/issues'>
+        <img src = 'https://img.shields.io/github/issues/jbakalarski/YourOwnCard?style=for-the-badge&color=%23ff6f00'/>
     </a>
-    <a href = 'https://github.com/jedrzejme/YourOwnCard/pulls'>
-        <img src = 'https://img.shields.io/github/issues-pr/jedrzejme/YourOwnCard?style=for-the-badge'/>
+    <a href = 'https://github.com/jbakalarski/YourOwnCard/pulls'>
+        <img src = 'https://img.shields.io/github/issues-pr/jbakalarski/YourOwnCard?style=for-the-badge'/>
     </a>
 </div>
 
@@ -30,18 +30,17 @@
 **❓ What is this?** Web app for creating your own card. Backend is written in Flask (Python framework).
 
 **❓ How to use it?**
-* [**Using docker-compose**](#using-docker-compose-to-run-your-own-card)
-* [**Using Python**](#using-python-to-run-your-own-card)
+* [**Using docker-compose**](#-using-docker-compose-to-run-your-own-card)
+* [**Using Python**](#-using-python-to-run-your-own-card)
 
 **❓ What did I use?**
 * [Python](https://www.python.org/)
-* [Python libraries](/requirements.txt)
 * [Docker](https://www.docker.com/)
 * [Coding](https://code.visualstudio.com/)
 * [Git management](https://desktop.github.com/)
 
 ## 📷 Preview of example profile
-[![](/assets/preview.png)](https://your-own-card.jbs.ovh/profile/jedrzej)
+![](/assets/preview.png)
 
 ## 🐳 Using docker-compose to run Your Own Card
 1) Install Docker, docker-compose and Git
@@ -103,4 +102,4 @@ python app.py
 Simpler and free alternative to popular, similar web apps
 
 ## 💲 Support
-<p><a href="https://support.jedrzej.me/" target="_blank"> <img align="left" src="https://raw.githubusercontent.com/jedrzejme/jedrzejme/main/assets/supportme.svg" height="50" width="210" alt="jedrzejme" /></a></p>
+<p><a href="https://support.jedrzej.me/" target="_blank"> <img align="left" src="https://raw.githubusercontent.com/jbakalarski/jbakalarski/main/assets/supportme.png" width="172" height="56" alt="jbakalarski" /></a></p>
